@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import TodoList from './Components/TodoList'
 import Form from './Components/Form'
 
@@ -6,11 +6,10 @@ import Form from './Components/Form'
 
 function App() {
  
-  
   return (
   <>
-    <Form/>
     <TodoList/>
+    <Form/>
   </>
   ) 
     
