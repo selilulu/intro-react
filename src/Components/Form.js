@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 //get the todos and setTodos as props
-export default function Form({todos,setTodos}) {
+export default function Form({todos,setTodos,setInputText}) {
     //get the inputs
     const inputRef=useRef()
     
@@ -24,15 +24,23 @@ export default function Form({todos,setTodos}) {
         //...todos gives us the elements inside the todolist
         setTodos([...todos, {name: name, complete: false, id:uuidv4() }])
 
-
-
-
+    }
+    function selectHandler(e){
+        setInputText(e.target.value);
     }
     return (
-        <div>
-            <h1>TODO LIST</h1>
+        <div className="form">
+            <div id="title">
+            </div>
             <input ref={inputRef} type="text" placeholder="Type a new todo"/>
-            <button type="submit" onClick={handleButton}>Add Todo</button>
+            <button type="submit" onClick={handleButton}>+</button>
+        <div className="select">
+            <select onChange={selectHandler} name="todos" className="filter">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="uncompleted">Uncompleted</option>
+            </select>
+        </div>
         </div>
     )
 }
