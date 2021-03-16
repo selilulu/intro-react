@@ -1,46 +1,52 @@
-import React,{useRef}from 'react';
+import React,{}from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 
 //get the todos and setTodos as props
-export default function Form({todos,setTodos,setInputText}) {
+function Form({todos,setTodos,setInputText,inputText,text,setDropdowns}) {
     //get the inputs
-    const inputRef=useRef()
-    
-    function handleButton(e){
-
-        // put the value of the input into the name variable
-        const name=inputRef.current.value
-
-        //if there is an empty input we dont add it into the todolist,we just return
-        if(name==="")return
-
-        console.log(name)            
-        
-
-        // null is just to clearout the value of the input after we submit something
-        inputRef.current.value=null
-
-        //...todos gives us the elements inside the todolist
-        setTodos([...todos, {name: name, complete: false, id:uuidv4() }])
-
+    const inputTextHandler=(e)=>{
+     setInputText(e.target.value);
+ 
     }
-    function selectHandler(e){
-        setInputText(e.target.value);
+    const buttonHandler=(e)=>{
+     e.preventDefault();
+        setTodos([...todos,{text:inputText,completed:false,id:uuidv4()}]);
+        //below its to reset the input inside the state after one is inputted
+        setInputText("");   
+    }
+    // function selectHandler(e){
+    //     setInputText(e.target.value);
+    // }  
+
+    const dropdownHandler =(e)=>{
+        setDropdowns(e.target.value);
+
     }
     return (
-        <div className="form">
-            <div id="title">
-            </div>
-            <input ref={inputRef} type="text" placeholder="Type a new todo"/>
-            <button type="submit" onClick={handleButton}>+</button>
+        <>
+        <form>
+            <input  
+            type="text" 
+            onChange={inputTextHandler} 
+            value={inputText} 
+            placeholder="Type here a new todo..."/>
+
+            <button className="inputButton" type="submit" onClick={buttonHandler}>
+                  <i className="fas fa-plus"></i>
+            </button>
         <div className="select">
-            <select onChange={selectHandler} name="todos" className="filter">
+            <select onChange={dropdownHandler} name="todos" className="filter">
                 <option value="all">All</option>
                 <option value="completed">Completed</option>
                 <option value="uncompleted">Uncompleted</option>
             </select>
         </div>
-        </div>
+        </form>
+
+        </>
     )
 }
+
+
+export default Form;

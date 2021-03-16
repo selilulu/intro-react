@@ -9,9 +9,25 @@ const KEY_STORAGE='todoApp'
 
 function App() {
   // const someTodos=['Go for groceries','Check out that book','Prepare a dish for today']
-  const [todos,setTodos]=useState([])
-  const [inputText,setInputText]=useState("")
+  //state stuff
+  const [todos,setTodos]=useState([]);
+  const [inputText,setInputText]=useState("");
+  const [dropDowns,setDropdowns]=useState("All");
+  // const [filteredtodos,setFilteredTodos]=useState([]);
 
+//functions
+// const filterHandler=()=>{
+//   switch(status){
+//     case 'completed':
+//   setFilteredTodos(todos.filter(todo=> todo.completed ===true));
+//   break;
+//     case 'uncompleted':
+//   setFilteredTodos(todos.filter(todo=> todo.completed ===false));
+//   break;
+//   default:
+//    setFilteredTodos(todos);
+//   }
+// }
 
   //to load our todos and retrive them with getItem.
   //the dependency is an empty array(we can call this function only once and by the help of the empty array it will be called only once).
@@ -25,7 +41,7 @@ function App() {
   //anytime when todos array changes then this function will run 
   //we can save all the changes into the localstorage.setItem(with the key in here)
   useEffect(() => {
-    window.localStorage.setItem(KEY_STORAGE,JSON.stringify(todos))
+    localStorage.setItem(KEY_STORAGE,JSON.stringify(todos))
     
   }, [todos])
   // console.log(localStorage)
@@ -36,14 +52,14 @@ function App() {
   <>
     <div className="App">
       <header>
-        <h1>TODO LIST</h1>
+        <h1>My Todo List</h1>
       </header>
-    <Form todos={todos} setTodos={setTodos} setInputText={setInputText}/>
-    <TodoList  todos={todos} setInputText={setInputText} />
+    <Form todos={todos} setTodos={setTodos} setInputText={setInputText} setDropdowns={setDropdowns} inputText={inputText}/>
+    <TodoList  todos={todos} setTodos={setTodos} />
     </div>
 
-  </>
-  ) 
+  </> 
+  ) ; 
     
    
 }

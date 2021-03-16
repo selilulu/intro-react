@@ -1,73 +1,166 @@
+
+
+*{
+    font-family: 'Times', sans-serif;
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+.App{
+    display: flex;
+    flex-direction: column;
+    /* justify-content:space-around; */
+
+}
+
 body{
     background-image:url(./calendar.jpg);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-size:     cover;                      /* <------ */
+    background-size:     cover;                     
     background-repeat:   no-repeat;
     background-position: center center;  
 }
 
-.form{
-    background-color:#20639B;
+header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    background-color: rgba(255, 255, 255, 0.562);
+    width:400px;
+    height:100px;
+    margin:15px auto; 
+}
+
+form{
+    background-color:rgba(255, 255, 255, 0.411);
     height: 200px;
     width: 400px;
     /* make it in the center with margin auto */
-    margin:10px auto; 
-    margin-top: 100px;
+    margin:0px auto; 
+    /* margin-top: 100px; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 input[type=text]{
-    background-color:pink;
-    margin: 30px;
-    padding: 0 30px;
-    border: 0;
-    width: 150px;
+    background-color:rgba(233, 189, 106, 0.795);
+    margin: 20px;
+    padding: 20px;
+    border: none;
+    width: 180px;
     height: 50px;
     border-radius: 5px;
 }
 
 input::placeholder{
-    color:white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(25, 54, 54);;
 
-      
+        
 }
+input[type=text]:hover {
+    background-color: rgb(122, 205, 233);
+  }
 h1{
-    color:#20639B;
+    color:rgb(20, 136, 136);
     text-align: center;  
+    opacity: 0.7;
+    text-shadow:2px 2px 6px rgba(57, 3, 253, 0.925);
+
        
 }
-
-header{
-    background-color: white;
-    width: 400px;
-    height: 100px;
-    margin:10px auto; 
+select{
+    width:50px;
+    height: 20px;
+    margin: 20px;
+    border:none;
+    background-color:rgba(233, 189, 106, 0.795);
+    border-radius: 3px;
+    
 }
-button{
-    background-color:pink;
-    border:2;
-    height: 38px;
+
+
+.inputButton{
+    transition: all 0.5s;
+    border-radius: 1rem;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+
+    background-color:rgb(20, 136, 136);
+    /* border:none; */
+    height: 25px;
     width: 50px;
-    border-radius: 5px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     cursor:pointer;
     font-weight: bolder;
     font-size:15px;
     color:whitesmoke;
+    -webkit-box-sizing: border-box; 
+        -moz-box-sizing: border-box;   
+            box-sizing: border-box;  
 }
-.checkboxes{
-    background-color:#20639B;
+
+.inputButton:hover{
+    background-color: whitesmoke;
+    color:rgb(20, 136, 136);
+}
+
+.todo-container{
+    background-color:rgba(255, 255, 255, 0.411);
     height: 200px;
     width: 400px;
     /* make it in the center with margin auto */
-    margin:10px auto; 
-    /* margin-top: 50px; */
+    margin:0px auto; 
+    font-family:'Times New Roman', Times, serif;
+    padding-left: 0px;
+    
+    
+}
+.todo-item{
+    padding:0rem 0.5rem
 }
 
-ul{
-    font-size:30px;
-    margin: 20px auto;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: pink;
+.todo-list{
+    font-size:20px;
+    /* 1em= 16px */
+    margin: 0px auto;
+    color:rgb(20, 136, 136);
+
+}
+/* .fall{
+    transform:translateY(10rem) rotateZ(20deg);
+    opacity: 0;
+} */
+
+
+
+.completed{
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.todo {
+    margin:20px;
+    background-color: rgba(20, 136, 136, 0.336);
+
+    list-style-type:none;
+
+}
+/* .todo{
+} */
+.trash-btn{
+    background-color:rgb(20, 136, 136);
+    width: 30px;
+       
+        border-radius: 5px;
+        cursor:pointer;
+        font-weight: bolder;
+        color:whitesmoke;
+        /* margin-left: 50px; */
+        /* position: fixed;
+        left:1px; */
+        display: float;
+        float: right;
+
 
 }

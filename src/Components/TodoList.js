@@ -1,28 +1,33 @@
+import React from 'react';
+import Todo from './Todo';
 
-import React from 'react'
 
-
-export default function TodoList({todos,setInputText}) {
+function TodoList({todos,setTodos}) {
+    //const TodoList =()=>{} it can also be written like this instead of old syntax
 
     
-
     return (
         <div>
             <h4>Todos</h4>
-            <div className='checkboxes'>
-                <ul>
-                    {/* {todos.length} */}
+            <div className='todo-container'>
+                <ul className="todo-list">
                     {/* map is like a foreach in php */}
                     {todos.map((todo)=>(
-                        <li key={todo.id}>
-                            <input type="checkbox" defaultChecked={todo.complete} />{todo.name}
-                            <button className="trash-btn"><i className="fas fa-trash"></i></button>
-                            <button className="tick-btn"><i className="fas fa-check"></i></button>
-                        </li>
-                    ))}
+                        <Todo
+                        todo={todo}
+                        todos={todos}
+                        setTodos={setTodos}
+                        key={todo.id}
+                        text={todo.text}
+
+                        />
+
+                       
+                    ))} 
                 </ul>
 
             </div>
         </div>
     )
 }
+export default TodoList;
