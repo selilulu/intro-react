@@ -1,14 +1,33 @@
-import React from 'react'
-import Todo from './Todo'
+import React from 'react';
+import Todo from './Todo';
 
 
-export default function TodoList({todos}) {
+function TodoList({todos,setTodos}) {
+    //const TodoList =()=>{} it can also be written like this instead of old syntax
+
+    
     return (
-    // <div>
-    //     {todos.length}
-    // </div>
-    todos.map(todo=>{
-        return <Todo key={todo.id} todo={todo} />
-    })
-     )
+        <div>
+            <h4>Todos</h4>
+            <div className='todo-container'>
+                <ul className="todo-list">
+                    {/* map is like a foreach in php */}
+                    {todos.map((todo)=>(
+                        <Todo
+                        todo={todo}
+                        todos={todos}
+                        setTodos={setTodos}
+                        key={todo.id}
+                        text={todo.text}
+
+                        />
+
+                       
+                    ))} 
+                </ul>
+
+            </div>
+        </div>
+    )
 }
+export default TodoList;
